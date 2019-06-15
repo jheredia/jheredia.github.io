@@ -51,6 +51,10 @@
 .dark {
   background-color: rgb(1, 16, 45);
 }
+
+.main-content {
+  background-color: white;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
