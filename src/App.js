@@ -1,30 +1,41 @@
-import React, {Component} from 'react';
-import Sidebar from './components/sidebar/Sidebar';
-import { Container, Row, Col } from 'reactstrap';
-import './App.css';
+import React, { Component } from "react";
+import Sidebar from "components/sidebar/Sidebar";
+import Avatar from "components/avatar/Avatar";
+import { Container, Row, Col } from "reactstrap";
+import "App.css";
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       leftSidebarOpen: true,
-      rightSidebarOpen: false,
+      rightSidebarOpen: true
     };
   }
-  toggleSidebar = (sidebar) => {
-    let value = this.state[sidebar+'SidebarOpen'];
+  toggleSidebar = sidebar => {
+    let value = this.state[sidebar + "SidebarOpen"];
     let state = this.state;
-    state[sidebar+'SidebarOpen'] = !value;
+    state[sidebar + "SidebarOpen"] = !value;
     this.setState(state);
-  }
-  render(){
+  };
+  render() {
     return (
       <Container fluid={true}>
         <Row>
-          <Sidebar open={this.state.leftSidebarOpen} side={'left'} toggleSidebar={() => this.toggleSidebar('left')}/>
-          <Col>
-
-          </Col>
-          <Sidebar open={this.state.rightSidebarOpen} side={'right'} toggleSidebar={() => this.toggleSidebar('right')}/>
+          <Sidebar
+            open={this.state.leftSidebarOpen}
+            side={"left"}
+            toggleSidebar={() => this.toggleSidebar("left")}
+          >
+            <div className="mt-3">
+              <Avatar frame={'img-thumbnail'}/>
+            </div>
+          </Sidebar>
+          <Col className="main-content" />
+          <Sidebar
+            open={this.state.rightSidebarOpen}
+            side={"right"}
+            toggleSidebar={() => this.toggleSidebar("right")}
+          />
         </Row>
       </Container>
     );
