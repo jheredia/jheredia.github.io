@@ -23,6 +23,34 @@
   color: #61dafb;
 }
 
+.sidebar {
+  background-color: rgb(195, 231, 254);
+  height: calc(100vh);
+  transition: transform 400ms ease-in;
+  position: sticky;
+}
+
+.sidebar.left.hidden {
+  transform: translateX(-90%);
+}
+
+.sidebar.right.hidden {
+  transform: translateX(90%);
+}
+
+.sidebar.left.hidden > .btn {
+  transition: transform 400ms ease-in;
+  transform: translateX(25%);
+}
+.sidebar.open {
+  transform: translateX(0);
+}
+.sidebar .btn {
+  transition: transform 400ms ease-in;
+}
+.dark {
+  background-color: rgb(1, 16, 45);
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
